@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+#******************************************************************
+# ILP - Implantation d'un langage de programmation.
+# by Chafik NOUIRA - TME 2 DLP
+# See http://mooc.paracamplus.com/ilp9
+# GPL version 3
+#****************************************************************** 
+
+include "grammar1.rnc"
+
+expression |= 
+    loop 
+  | assignment
+  
+    
+assignment = element assignment {
+    attribute name { xsd:Name - ( xsd:Name { pattern = "(ilp|ILP)" } ) },
+    element value {expression}
+}
+    
+    
+functionDefinition = element functionDefinition {
+    attribute name { xsd:Name - ( xsd:Name { pattern = "(ilp|ILP)" } ) },
+    element variables { variable * },
+    element body { expression +}    
+}
+
+loop = element loop {     # ne traite que la boucle while
+    element condition {expression
+    element body {expression + }
+}
+
+program = element program {
+    (functionDefinition) *,
+    expression +
+}

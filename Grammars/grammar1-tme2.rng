@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <!--
+    -*- coding: utf-8 -*-
+    ******************************************************************
+    ILP - Implantation d'un langage de programmation.
+    by Chafik NOUIRA - TME 2 DLP
+    See http://mooc.paracamplus.com/ilp9
+    GPL version 3
+    ****************************************************************** 
+  -->
+  <include href="grammar1rng"/>
+  <define name="expression" combine="choice">
+    <choice>
+      <ref name="loop"/>
+      <ref name="assignment"/>
+    </choice>
+  </define>
+  <define name="assignment">
+    <element name="assignment">
+      <attribute name="name">
+        <data type="Name">
+          <except>
+            <data type="Name">
+              <param name="pattern">(ilp|ILP)</param>
+            </data>
+          </except>
+        </data>
+      </attribute>
+      <element name="value">
+        <ref name="expression"/>
+      </element>
+    </element>
+  </define>
+  <define name="functionDefinition">
+    <element name="functionDefinition">
+      <attribute name="name">
+        <data type="Name">
+          <except>
+            <data type="Name">
+              <param name="pattern">(ilp|ILP)</param>
+            </data>
+          </except>
+        </data>
+      </attribute>
+      <element name="variables">
+        <zeroOrMore>
+          <ref name="variable"/>
+        </zeroOrMore>
+      </element>
+      <element name="body">
+        <oneOrMore>
+          <ref name="expression"/>
+        </oneOrMore>
+      </element>
+    </element>
+  </define>
+  <define name="loop">
+    <element name="loop">
+      <!-- ne traite que la boucle while -->
+      <element name="condition">
+        <ref name="expression"/>
+      </element>
+      <element name="body">
+        <oneOrMore>
+          <ref name="expression"/>
+        </oneOrMore>
+      </element>
+    </element>
+  </define>
+  <define name="program">
+    <element name="program">
+      <zeroOrMore>
+        <ref name="functionDefinition"/>
+      </zeroOrMore>
+      <oneOrMore>
+        <ref name="expression"/>
+      </oneOrMore>
+    </element>
+  </define>
+</grammar>
