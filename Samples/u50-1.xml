@@ -1,0 +1,127 @@
+<!-- ;;; $Id$ — "discriminant negatif: aucune racine" — "discriminant positif: 
+    deux racines" — "discriminant nul: une seule racine" ;;; end of discriminant.scm 
+    
+    Auteur : Chafik NOUIRA
+    TME n° 1
+-->
+<program><!-- test:result value='710' -->
+
+<block>
+
+    <bindings>
+        <binding>
+            <variable name="a"/><initialisation><integer value="2"/></initialisation>
+        </binding>
+        <binding>
+            <variable name="b"/><initialisation><integer value="4"/></initialisation>
+        </binding>
+        <binding>
+            <variable name="c"/><initialisation><integer value="2"/></initialisation>
+        </binding>
+        
+    </bindings>
+    
+    
+   <body>
+       <alternative>
+            <condition>
+            
+                <!-- ((b*b)-(4*(a*c))) > 0 -->
+                <binaryOperation operator=">">
+                    <leftOperand>
+                        <!-- ((b*b)-(4*(a*c))) -->
+                        <binaryOperation operator="-">
+                            <leftOperand>
+                                <!-- (b*b) -->
+                                <binaryOperation operator="*">
+                                    <leftOperand><variable name="b"/></leftOperand>
+                                    <rightOperand><variable name="b"/></rightOperand>
+                                </binaryOperation>
+                            </leftOperand>
+                            <rightOperand>
+                                <!-- (4*(a*c)) -->
+                                <binaryOperation operator="*">
+                                    <leftOperand><integer value="4"/></leftOperand>
+                                    <rightOperand>
+                                        <!-- (a*c) -->
+                                        <binaryOperation operator="*">
+                                            <leftOperand><variable name="a"/></leftOperand>
+                                            <rightOperand><variable name="c"/></rightOperand>
+                                        </binaryOperation>
+                                    </rightOperand>
+                                </binaryOperation>
+                            </rightOperand>
+                        </binaryOperation>
+                    </leftOperand>
+                    <!-- 0 -->
+                    <rightOperand><integer value="0"/></rightOperand>
+                </binaryOperation>
+                
+            </condition>
+            <consequence>
+                <invocation>
+                    <function><variable name='print'/></function>
+                    <arguments>
+                        <string>discriminant positif: deux racines</string>
+                    </arguments>
+                </invocation>
+            </consequence>
+            <alternant>
+                <alternative>
+                    <condition>
+                
+                        <!-- ((b*b)-(4*(a*c))) == 0 -->
+                        <binaryOperation operator="==">
+                            <leftOperand>
+                                <!-- ((b*b)-(4*(a*c))) -->
+                                <binaryOperation operator="-">
+                                    <leftOperand>
+                                        <!-- (b*b) -->
+                                        <binaryOperation operator="*">
+                                            <leftOperand><variable name="b"/></leftOperand>
+                                            <rightOperand><variable name="b"/></rightOperand>
+                                        </binaryOperation>
+                                    </leftOperand>
+                                    <rightOperand>
+                                        <!-- (4*(a*c)) -->
+                                        <binaryOperation operator="*">
+                                            <leftOperand><integer value="4"/></leftOperand>
+                                            <rightOperand>
+                                                <!-- (a*c) -->
+                                                <binaryOperation operator="*">
+                                                    <leftOperand><variable name="a"/></leftOperand>
+                                                    <rightOperand><variable name="c"/></rightOperand>
+                                                </binaryOperation>
+                                            </rightOperand>
+                                        </binaryOperation>
+                                    </rightOperand>
+                                </binaryOperation>
+                            </leftOperand>
+                            <!-- 0 -->
+                            <rightOperand><integer value="0"/></rightOperand>
+                        </binaryOperation>
+                
+                    </condition>
+                    <consequence>
+                        <invocation>
+                            <function><variable name='print'/></function>
+                            <arguments>
+                                <string>discriminant nul: une seule racine</string>
+                            </arguments>
+                        </invocation>
+                    </consequence>
+                    <alternant>
+                        <invocation>
+                            <function><variable name='print'/></function>
+                            <arguments>
+                                <string>discriminant negatif: aucune racine</string>
+                            </arguments>
+                        </invocation>
+                    </alternant>
+                </alternative>
+            </alternant>
+       </alternative>
+   </body>
+</block>
+
+</program>

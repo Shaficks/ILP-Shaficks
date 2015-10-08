@@ -1,7 +1,5 @@
 package com.paracamplus.ilp1.ilp1tme2;
 
-import java.util.ArrayList;
-
 import com.paracamplus.ilp1.interfaces.IASTalternative;
 import com.paracamplus.ilp1.interfaces.IASTbinaryOperation;
 import com.paracamplus.ilp1.interfaces.IASTblock;
@@ -17,7 +15,6 @@ import com.paracamplus.ilp1.interfaces.IASTunaryOperation;
 import com.paracamplus.ilp1.interfaces.IASTvariable;
 import com.paracamplus.ilp1.interfaces.IASTvisitor;
 import com.paracamplus.ilp1.interpreter.interfaces.EvaluationException;
-import com.paracamplus.ilp1.interpreter.interfaces.ILexicalEnvironment;
 
 public class CountingVisitor implements IASTvisitor <Integer , Object, EvaluationException>{
 
@@ -89,7 +86,7 @@ public class CountingVisitor implements IASTvisitor <Integer , Object, Evaluatio
 		IASTexpression[] tab;
 		tab = iast.getExpressions();
 		for(int i = 0; i < tab.length; i++) {
-			if(tab[i].)
+			//if(tab[i].)
 		}
 		return rep;
 	}
@@ -111,7 +108,6 @@ public class CountingVisitor implements IASTvisitor <Integer , Object, Evaluatio
 			throws EvaluationException {
 		return 1;
 	}
-	
 	
 	public static void main(String[] args) {
 		

@@ -1,9 +1,6 @@
 package com.paracamplus.ilp1.ilp1tme2;
 
-import com.paracamplus.ilp1.interfaces.IASTvisitor;
 import com.paracamplus.ilp1.interpreter.interfaces.EvaluationException;
-
-
 
  /* Interface créée lors du tme2 - Exercice 2.2 
   * 

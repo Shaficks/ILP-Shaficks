@@ -1,0 +1,70 @@
+<!-- ;;; $Id$ — "discriminant negatif: aucune racine" — "discriminant positif: 
+    deux racines" — "discriminant nul: une seule racine" ;;; end of discriminant.scm 
+--><program><!-- test:result value='710' VERSION DE DIOUM -->
+
+<block>
+    <bindings>
+        <binding><variable name="a"/><initialisation><integer value="2"/></initialisation></binding>
+        <binding><variable name="b"/><initialisation><integer value="10"/></initialisation></binding>
+        <binding><variable name="c"/><initialisation><integer value="2"/></initialisation></binding>
+    </bindings>
+    
+    <body>
+        <alternative>
+            <condition>
+                <binaryOperation operator=">">
+                    <leftOperand>
+                        <binaryOperation operator="*">
+                            <leftOperand><variable name="b"/></leftOperand>
+                            <rightOperand><variable name="b"/></rightOperand>
+                        </binaryOperation>
+                    </leftOperand>
+                    <rightOperand>
+                        <binaryOperation operator="*">
+                            <leftOperand><integer value="4"/></leftOperand>
+                            <rightOperand>
+                                <binaryOperation operator="*">
+                                    <leftOperand><variable name="a"/></leftOperand>
+                                    <rightOperand><variable name="c"/></rightOperand>
+                                </binaryOperation>
+                            </rightOperand>
+                        </binaryOperation>
+                    </rightOperand>
+                </binaryOperation>
+            </condition>
+            <consequence>
+                <string>discriminant positif: deux racines</string>
+            </consequence>
+            <alternant>
+                <alternative>
+                    <condition>
+                        <binaryOperation operator="==">
+                            <leftOperand>
+                                <binaryOperation operator="*">
+                                    <leftOperand><variable name="b"/></leftOperand>
+                                    <rightOperand><variable name="b"/></rightOperand>
+                                </binaryOperation>
+                            </leftOperand>
+                            <rightOperand>
+                                <binaryOperation operator="*">
+                                    <leftOperand><integer value="4"/></leftOperand>
+                                    <rightOperand>
+                                    <binaryOperation operator="*">
+                                        <leftOperand><variable name="a"/></leftOperand>
+                                        <rightOperand><variable name="c"/></rightOperand>
+                                    </binaryOperation></rightOperand>
+                                </binaryOperation>
+                            </rightOperand>
+                        </binaryOperation>
+                    </condition>
+                    <consequence>
+                        <string>discriminant nul: une seule racine</string>
+                    </consequence>
+                </alternative>
+            </alternant>
+        </alternative>
+        <string>discriminant negatif: aucune racine</string>
+    </body>
+</block>
+
+</program>
